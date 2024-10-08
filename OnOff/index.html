@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrôle de la LED</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Roboto', sans-serif;
+            background-color: #c7c7c7;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: #444;
         }
+
+        img {
+            width: 250px;
+            position:fixed;
+            top: 10%;
+        }
+
         .container {
             text-align: center;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-5px);
         }
         h1 {
             color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
         }
         .buttons {
             margin-top: 20px;
@@ -32,20 +50,35 @@
             color: white;
             border: none;
             padding: 15px 30px;
-            font-size: 16px;
+            font-size: 18px;
             margin: 10px;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
             background-color: #45a049;
+            transform: translateY(-2px);
         }
         .off-btn {
             background-color: #f44336;
         }
         .off-btn:hover {
             background-color: #e53935;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            button {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -54,7 +87,7 @@
         <h1>Contrôle de la LED</h1>
         <p>Cliquez sur les boutons ci-dessous pour allumer ou éteindre la LED :</p>
         <div class="buttons">
-            <form method="post" action="ras.php">
+            <form method="post" action="rasOnOff.php">
                 <button type="submit" name="action" value="allumer">Allumer la LED</button>
                 <button type="submit" name="action" value="eteindre" class="off-btn">Éteindre la LED</button>
             </form>
